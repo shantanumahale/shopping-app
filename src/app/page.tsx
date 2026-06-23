@@ -1,10 +1,16 @@
-export default function Home() {
+import ProductCard from "@/components/molecules/ProductCard";
+import { getProducts } from "@/lib/api";
+
+export default async function HomePage() {
+  const products = await getProducts();
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-4 p-8 text-center">
-      <h1 className="text-4xl font-bold tracking-tight">Shopping App</h1>
-      <p className="text-lg text-zinc-600 dark:text-zinc-400">
-        Edit <code className="font-mono">src/app/page.tsx</code> to get started.
-      </p>
+    <main className="mx-auto w-full max-w-6xl p-6">
+      <h1 className="mb-6 text-2xl font-bold">Products</h1>
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </main>
   );
 }
