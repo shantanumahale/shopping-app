@@ -7,6 +7,7 @@ A small e-commerce app built with **Next.js (App Router) + TypeScript**, **shadc
 
 - [Architecture](./architecture.md) — folder layout, atomic design, data flow, theming, performance, accessibility.
 - [Components](./components.md) — catalog of UI primitives, atoms, molecules, and widgets.
+- [Testing](./testing.md) — unit, integration, contract, and E2E test layers.
 
 ## Tech stack
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback } from "react";
-import { ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import QuantityStepper from "@/components/molecules/QuantityStepper";
 import { useCart } from "@/store/cart";
@@ -19,8 +18,8 @@ export default function CartControl({ product }: { product: Product }) {
 
   if (quantity === 0)
     return (
-      <Button className="w-full rounded-sm h-10" onClick={handleAdd}>
-        Add + 
+      <Button className="h-10 w-full rounded-sm" onClick={handleAdd}>
+        Add +
       </Button>
     );
 
