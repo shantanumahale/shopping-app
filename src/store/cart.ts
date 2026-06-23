@@ -29,6 +29,15 @@ function add(product: Product) {
   );
 }
 
+function decrement(id: number) {
+  const existing = items.find((i) => i.id === id);
+  if (!existing) return;
+  if (existing.quantity <= 1) return remove(id);
+  setItems(
+    items.map((i) => (i.id === id ? { ...i, quantity: i.quantity - 1 } : i)),
+  );
+}
+
 function remove(id: number) {
   setItems(items.filter((i) => i.id !== id));
 }
@@ -44,7 +53,13 @@ export function useCart() {
     () => items,
     () => EMPTY,
   );
-  const count = list.reduce((n, i) => n + i.quantity, 0);
-  const total = list.reduce((n, i) => n + i.price * i.quantity, 0);
-  return { items: list, count, total, add, remove };
+  return {
+    items: list,
+    count: list.reduce((n, i) => n + i.quantity, 0),
+    total: list.reduce((n, i) => n + i.price * i.quantity, 0),
+    quantityOf: (id: number) => list.find((i) => i.id === id)?.quantity ?? 0,
+    add,
+    decrement,
+    remove,
+  };
 }

@@ -1,8 +1,6 @@
-import Link from "next/link";
-
-export default function CartLink({ count }: { count: number }) {
+export default function CartIcon({ count }: { count: number }) {
   return (
-    <Link href="/cart" className="relative" aria-label="Cart">
+    <span className="relative block">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -22,6 +20,6 @@ export default function CartLink({ count }: { count: number }) {
           {count}
         </span>
       )}
-    </Link>
+    </span>
   );
 }

@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import Price from "@/components/atoms/Price";
-import CartItemRow from "@/components/widgets/CartItemRow";
 import { useCart } from "@/store/cart";
 
-export default function CartView() {
-  const { items, count, total } = useCart();
+export default function CheckoutSummary() {
+  const { count, total } = useCart();
 
   if (count === 0)
     return (
@@ -20,14 +19,12 @@ export default function CartView() {
     );
 
   return (
-    <div>
-      {items.map((item) => (
-        <CartItemRow key={item.id} item={item} />
-      ))}
-      <div className="mt-6 flex items-center justify-between text-lg font-semibold">
-        <span>Total ({count} items)</span>
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center justify-between text-lg font-semibold">
+        <span>Order total ({count} items)</span>
         <Price value={total} />
       </div>
+      <p className="text-sm text-zinc-500">Checkout is coming soon.</p>
     </div>
   );
 }

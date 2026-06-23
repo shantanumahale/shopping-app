@@ -8,10 +8,14 @@ const styles = {
   ghost: "text-red-600 hover:underline",
 };
 
-export default function Button({ variant = "primary", ...props }: Props) {
+export default function Button({
+  variant = "primary",
+  className = "",
+  ...props
+}: Props) {
   return (
     <button
-      className={`rounded-md px-3 py-1.5 text-sm font-medium ${styles[variant]}`}
+      className={`rounded-md px-3 py-1.5 text-sm font-medium ${styles[variant]} ${className}`}
       {...props}
     />
   );
