@@ -1,34 +1,47 @@
+import { memo } from "react";
+import { Minus, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
 type Props = {
   quantity: number;
   onIncrement: () => void;
   onDecrement: () => void;
+  className?: string;
 };
 
-const button =
-  "flex h-7 w-7 items-center justify-center rounded-md border border-zinc-300 text-lg leading-none hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800";
-
-export default function QuantityStepper({
+function QuantityStepper({
   quantity,
   onIncrement,
   onDecrement,
+  className,
 }: Props) {
   return (
-    <div className="flex items-center gap-2">
-      <button
-        onClick={onDecrement}
+    <div className={cn("flex items-center gap-2", className)}>
+      <Button
+        variant="outline"
+        size="icon-lg"
         aria-label="Decrease quantity"
-        className={button}
+        onClick={onDecrement}
       >
-        −
-      </button>
-      <span className="w-6 text-center text-sm font-medium">{quantity}</span>
-      <button
-        onClick={onIncrement}
+        <Minus />
+      </Button>
+      <span
+        className="w-6 text-center text-sm font-medium tabular-nums"
+        aria-live="polite"
+      >
+        {quantity}
+      </span>
+      <Button
+        variant="outline"
+        size="icon-lg"
         aria-label="Increase quantity"
-        className={button}
+        onClick={onIncrement}
       >
-        +
-      </button>
+        <Plus />
+      </Button>
     </div>
   );
 }
+
+export default memo(QuantityStepper);

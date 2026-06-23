@@ -9,9 +9,12 @@ export default function CheckoutSummary() {
 
   if (count === 0)
     return (
-      <p className="text-zinc-500">
+      <p className="text-muted-foreground">
         Your cart is empty.{" "}
-        <Link href="/" className="underline">
+        <Link
+          href="/"
+          className="text-primary underline-offset-4 hover:underline"
+        >
           Browse products
         </Link>
         .
@@ -24,7 +27,7 @@ export default function CheckoutSummary() {
         <span>Order total ({count} items)</span>
         <Price value={total} />
       </div>
-      <p className="text-sm text-zinc-500">Checkout is coming soon.</p>
+      <p className="text-muted-foreground text-sm">Checkout is coming soon.</p>
     </div>
   );
 }
