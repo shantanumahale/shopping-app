@@ -8,3 +8,5 @@ export type Product = {
   thumbnail: string;
   images: string[];
 };
+
+export type CartItem = Product & { quantity: number };

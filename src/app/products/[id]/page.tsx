@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Discount from "@/components/atoms/Discount";
 import Price from "@/components/atoms/Price";
 import Rating from "@/components/atoms/Rating";
+import AddToCartButton from "@/components/widgets/AddToCartButton";
 import { getProduct } from "@/lib/api";
 
 export default async function ProductDetailPage({
@@ -33,6 +34,7 @@ export default async function ProductDetailPage({
         <p className="text-zinc-600 dark:text-zinc-400">
           {product.description}
         </p>
+        <AddToCartButton product={product} />
       </div>
     </main>
   );
