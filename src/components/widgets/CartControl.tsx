@@ -26,7 +26,7 @@ export default function CartControl({ product }: { product: Product }) {
 
   return (
     <QuantityStepper
-      className="w-full justify-between"
+      className="w-full justify-center"
       quantity={quantity}
       onIncrement={handleAdd}
       onDecrement={handleDecrement}

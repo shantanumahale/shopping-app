@@ -62,7 +62,7 @@ export default function CartDrawer() {
               href="/cart"
               className={buttonVariants({
                 variant: "outline",
-                className: "w-full",
+                className: "w-full h-12",
               })}
             >
               View full cart
@@ -71,7 +71,7 @@ export default function CartDrawer() {
           <SheetClose asChild>
             <Link
               href="/checkout"
-              className={buttonVariants({ className: "w-full" })}
+              className={buttonVariants({ className: "w-full h-12" })}
             >
               Proceed to Checkout
             </Link>

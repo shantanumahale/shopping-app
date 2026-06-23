@@ -36,7 +36,7 @@ export default function CartView() {
         <span>Total ({count} items)</span>
         <Price value={total} />
       </div>
-      <Button asChild className="mt-4 w-full">
+      <Button asChild className="mt-4 w-full h-12">
         <Link href="/checkout">Proceed to Checkout</Link>
       </Button>
     </div>
