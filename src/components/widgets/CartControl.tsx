@@ -11,6 +11,7 @@ export default function CartControl({ product }: { product: Product }) {
   const quantity = quantityOf(product.id);
 
   const handleAdd = useCallback(() => add(product), [add, product]);
+  
   const handleDecrement = useCallback(
     () => decrement(product.id),
     [decrement, product.id],
